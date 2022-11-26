@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link href="/css/checkout.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="payment-title">
+    <h1>Payment Form</h1>
+</div>
+<div class="container preload">
+    <div class="creditcard">
+        <div class="front">
+            <div id="ccsingle"></div>
+            <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
+                    <g id="Front">
+                        <g id="CardBackground">
+                            <g id="Page-1_1_">
+                                <g id="amex_1_">
+                                    <path id="Rectangle-1_1_" class="lightcolor grey" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                            C0,17.9,17.9,0,40,0z"/>
+                                </g>
+                            </g>
+                            <path class="darkcolor greydark"
+                                  d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z"/>
+                        </g>
+                        <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" class="st2 st3 st4">0123 4567 8910 1112</text>
+                        <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname"
+                              class="st2 st5 st6">380965374034</text>
+                        <text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">cardholder phone</text>
+                        <text transform="matrix(1 0 0 1 479.7754 388.8793)" class="st7 st5 st8">expiration</text>
+                        <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card number</text>
+                        <g>
+                            <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire"
+                                  class="st2 st5 st9">01/23</text>
+                            <text transform="matrix(1 0 0 1 479.3848 417.0097)" class="st2 st10 st11">VALID</text>
+                            <text transform="matrix(1 0 0 1 479.3848 435.6762)" class="st2 st10 st11">THRU</text>
+                            <polygon class="st2" points="554.5,421 540.4,414.2 540.4,427.9 		"/>
+                        </g>
+                        <g id="cchip">
+                            <g>
+                                <path class="st2" d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
+                        c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z"/>
+                            </g>
+                            <g>
+                                <g>
+                                    <rect x="82" y="70" class="st12" width="1.5" height="60"/>
+                                </g>
+                                <g>
+                                    <rect x="167.4" y="70" class="st12" width="1.5" height="60"/>
+                                </g>
+                                <g>
+                                    <path class="st12" d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
+                            c0-10.2,8.3-18.5,18.5-18.5s18.5,8.3,18.5,18.5c0,4.6-1.7,8.9-4.7,12.3c3,3.4,4.7,7.7,4.7,12.3
+                            C143.9,122.5,135.7,130.8,125.5,130.8z M125.5,70.8c-9.3,0-16.9,7.6-16.9,16.9c0,4.4,1.7,8.6,4.8,11.8l0.5,0.5l-0.5,0.5
+                            c-3.1,3.2-4.8,7.4-4.8,11.8c0,9.3,7.6,16.9,16.9,16.9s16.9-7.6,16.9-16.9c0-4.4-1.7-8.6-4.8-11.8l-0.5-0.5l0.5-0.5
+                            c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z"/>
+                                </g>
+                                <g>
+                                    <rect x="82.8" y="82.1" class="st12" width="25.8" height="1.5"/>
+                                </g>
+                                <g>
+                                    <rect x="82.8" y="117.9" class="st12" width="26.1" height="1.5"/>
+                                </g>
+                                <g>
+                                    <rect x="142.4" y="82.1" class="st12" width="25.8" height="1.5"/>
+                                </g>
+                                <g>
+                                    <rect x="142" y="117.9" class="st12" width="26.2" height="1.5"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                <g id="Back">
+                    </g>
+                </svg>
+        </div>
+        <div class="back">
+            <svg version="1.1" id="cardback" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
+                    <g id="Front">
+                        <line class="st0" x1="35.3" y1="10.4" x2="36.7" y2="11"/>
+                    </g>
+                <g id="Back">
+                        <g id="Page-1_2_">
+                            <g id="amex_2_">
+                                <path id="Rectangle-1_2_" class="darkcolor greydark" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                        C0,17.9,17.9,0,40,0z"/>
+                            </g>
+                        </g>
+                    <rect y="61.6" class="st2" width="750" height="78"/>
+                    <g>
+                            <path class="st3" d="M701.1,249.1H48.9c-3.3,0-6-2.7-6-6v-52.5c0-3.3,2.7-6,6-6h652.1c3.3,0,6,2.7,6,6v52.5
+                    C707.1,246.4,704.4,249.1,701.1,249.1z"/>
+                        <rect x="42.9" y="198.6" class="st4" width="664.1" height="10.5"/>
+                        <rect x="42.9" y="224.5" class="st4" width="664.1" height="10.5"/>
+                        <path class="st5"
+                              d="M701.1,184.6H618h-8h-10v64.5h10h8h83.1c3.3,0,6-2.7,6-6v-52.5C707.1,187.3,704.4,184.6,701.1,184.6z"/>
+                        </g>
+                    <text transform="matrix(1 0 0 1 621.999 227.2734)" id="svgsecurity" class="st6 st7">985</text>
+                    <g class="st8">
+                            <text transform="matrix(1 0 0 1 518.083 280.0879)" class="st9 st6 st10">security code</text>
+                        </g>
+                    <rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5"/>
+                    <rect x="58.1" y="405.6" class="st11" width="421.7" height="13.5"/>
+                    <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback"
+                          class="st12 st13">380965374034</text>
+                    </g>
+                </svg>
+        </div>
+    </div>
+</div>
+<form class="form-container" th:action="@{'/personal/payment/' + ${#authentication.getPrincipal().getUsername()}}"
+      th:object="${form}" method="post">
+
+    <div class="field-container">
+        <label for="phone">Phone Number</label>
+        <input id="phone" maxlength="15" type="text" pattern="[0-9]*" inputmode="numeric" th:field="*{phone}">
+    </div>
+    <div class="field-container">
+        <label for="cardnumber">Card Number</label><span id="generatecard">generate random</span>
+        <input id="cardnumber" type="text" th:field="*{card}">
+        <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+
+        </svg>
+    </div>
+    <div class="field-container">
+        <label for="amount">Money Amount</label>
+        <input id="amount" min="0" type="text" pattern="[0-9]*" inputmode="numeric" th:field="*{amount}">
+    </div>
+    <div class="field-container">
+        <label for="expirationdate">Expiration (mm/yy)</label>
+        <input id="expirationdate" type="text" th:field="*{expiration}">
+    </div>
+    <div class="field-container">
+        <label for="securitycode">Security Code</label>
+        <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" th:field="*{cvv}">
+    </div>
+
+    <div class="field-container">
+        <hr>
+
+        <button class="button" type="submit">
+  <span class="button__text">
+    <span>p</span><span>r</span>o</span><span></span><span>c</span><span>e</span><span>e</span><span>d</span>
+            </span>
+            <svg class="button__svg" role="presentational" viewBox="0 0 600 600">
+                <defs>
+                    <clipPath id="myClip">
+                        <rect x="0" y="0" width="100%" height="50%"/>
+                    </clipPath>
+                </defs>
+                <g clip-path="url(#myClip)">
+                    <g id="money">
+                        <path d="M441.9,116.54h-162c-4.66,0-8.49,4.34-8.62,9.83l.85,278.17,178.37,2V126.37C450.38,120.89,446.56,116.52,441.9,116.54Z"
+                              fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"/>
+                        <path d="M424.73,165.49c-10-2.53-17.38-12-17.68-24H316.44c-.09,11.58-7,21.53-16.62,23.94-3.24.92-5.54,4.29-5.62,8.21V376.54H430.1V173.71C430.15,169.83,427.93,166.43,424.73,165.49Z"
+                              fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"/>
+                    </g>
+                    <g id="creditcardimg">
+                        <path d="M372.12,181.59H210.9c-4.64,0-8.45,4.34-8.58,9.83l.85,278.17,177.49,2V191.42C380.55,185.94,376.75,181.57,372.12,181.59Z"
+                              fill="#a76fe2" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"/>
+                        <path d="M347.55,261.85H332.22c-3.73,0-6.76-3.58-6.76-8v-35.2c0-4.42,3-8,6.76-8h15.33c3.73,0,6.76,3.58,6.76,8v35.2C354.31,258.27,351.28,261.85,347.55,261.85Z"
+                              fill="#ffdc67"/>
+                        <path d="M249.73,183.76h28.85v274.8H249.73Z" fill="#323c44"/>
+                    </g>
+                </g>
+                <g id="wallet">
+                    <path d="M478,288.23h-337A28.93,28.93,0,0,0,112,317.14V546.2a29,29,0,0,0,28.94,28.95H478a29,29,0,0,0,28.95-28.94h0v-229A29,29,0,0,0,478,288.23Z"
+                          fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"/>
+                    <path d="M512.83,382.71H416.71a28.93,28.93,0,0,0-28.95,28.94h0V467.8a29,29,0,0,0,28.95,28.95h96.12a19.31,19.31,0,0,0,19.3-19.3V402a19.3,19.3,0,0,0-19.3-19.3Z"
+                          fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14"/>
+                    <path d="M451.46,435.79v7.88a14.48,14.48,0,1,1-29,0v-7.9a14.48,14.48,0,0,1,29,0Z" fill="#a4bdc1"
+                          stroke="#323c44" stroke-miterlimit="10" stroke-width="14"/>
+                    <path d="M147.87,541.93V320.84c-.05-13.2,8.25-21.51,21.62-24.27a42.71,42.71,0,0,1,7.14-1.32l-29.36-.63a67.77,67.77,0,0,0-9.13.45c-13.37,2.75-20.32,12.57-20.27,25.77l.38,221.24c-1.57,15.44,8.15,27.08,25.34,26.1l33-.19c-15.9,0-28.78-10.58-28.76-25.93Z"
+                          fill="#7b8f91"/>
+                    <path d="M148.16,343.22a6,6,0,0,0-6,6v92a6,6,0,0,0,12,0v-92A6,6,0,0,0,148.16,343.22Z"
+                          fill="#323c44"/>
+                </g>
+
+            </svg>
+        </button>
+
+    </div>
+    <div class="field-container">
+        <button onclick="back()" class="button-45" role="button">
+        <span class="button__text">
+    <span>b</span><span>a</span>c</span><span>k</span>
+            </span>
+        </button>
+    </div>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
+<script type="text/javascript" th:src="@{/js/checkout.js}"></script>
+</body>
+</html>

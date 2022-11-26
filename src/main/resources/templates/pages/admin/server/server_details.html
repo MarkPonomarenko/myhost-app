@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/admin_layout}">
+<head>
+    <meta charset="utf-8">
+    <title>Server Details</title>
+</head>
+<body>
+
+<div layout:fragment="admin_content">
+    <div class="container">
+        <div class="card mt-4 mb-4">
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <td>id</td>
+                        <td th:text="${server.getId()}">id</td>
+                    </tr>
+                    <tr>
+                        <td>created</td>
+                        <td th:text="${#calendars.format(server.getCreated(),'dd MMMM yyyy')}">id</td>
+                    </tr>
+                    <tr>
+                        <td>updated</td>
+                        <td th:text="${#calendars.format(server.getUpdated(),'dd MMMM yyyy')}">id</td>
+                    </tr>
+                    <tr>
+                        <td>server name</td>
+                        <td th:text="${server.getServerName()}">unknown</td>
+                    </tr>
+                    <tr>
+                        <td>cpu series</td>
+                        <td th:text="${server.getCpuSeries()}">unknown</td>
+                    </tr>
+                    <tr>
+                        <td>cpu model</td>
+                        <td th:text="${server.getCpuModel()}">unknown</td>
+                    </tr>
+                    <tr>
+                        <td>rented</td>
+                        <td th:if="${!server.getVisible()}">true</td>
+                        <td th:if="${server.getVisible()}">false</td>
+                    </tr>
+                    <tr>
+                        <td>price</td>
+                        <td th:text="${'$' + server.getPrice()}">id</td>
+                    </tr>
+                    <tr>
+                        <td>tenant</td>
+                        <td th:if="${server.getPersonal()}" th:text="${server.getPersonal().getEmail()}">unknown</td>
+                        <td th:if="${#lists.isEmpty(server.getPersonal())}">none</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/data_table_layout}">
+<head>
+    <meta charset="utf-8">
+    <title>Servers</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-2 mt-2">
+                <td>
+                    <a th:href="@{'/admin/servers/new'}" type="button" class="btn btn-primary">Add Server</a>
+                </td>
+            </div>
+        </div>
+    </div>
+</div>
+<div layout:fragment="data_table_content">
+    <tr th:each="server,iter : ${pageData.getItems()}">
+        <td th:text="${iter.count}"></td>
+        </td>
+        <td th:text="${server.getCpuSeries()}"></td>
+        <td th:text="${server.getServerName()}"></td>
+        <td th:text="${server.getRam()}"></td>
+        <td th:text="${server.getCpuModel()}"></td>
+        <td th:text="${#calendars.format(server.getCreated(),'dd MMMM yyyy')}"></td>
+        <td th:text="${server.getPrice()}"></td>
+        <td>
+            <a th:href="@{'/admin/servers/details/' + ${server.getId()}}" type="button"
+               class="btn btn-primary">details</a>
+        </td>
+        <td>
+            <a th:href="@{'/admin/servers/delete/' + ${server.getId()}}" type="button" class="btn btn-danger">delete</a>
+        </td>
+    </tr>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/open_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalog</title>
+    <style>
+
+        a {
+            text-decoration: none !important
+        }
+
+        .fixed-container {
+            min-width: 1200px;
+            overflow: hidden;
+        }
+
+        .card-product-list,
+        .card-product-grid {
+            margin-bottom: 0
+        }
+
+        .card {
+            width: 300px !important;
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            transition: .2s;
+            overflow: hidden;
+        }
+
+        .card .span-my {
+            position: absolute;
+            display: block;
+        }
+
+        .card .span-my:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgb(33, 37, 41));
+
+        }
+
+        .card:hover .span-my:nth-child(1) {
+            left: 100%;
+            transition: 1s;
+        }
+
+        .card .span-my:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgb(33, 37, 41));
+        }
+
+        .card:hover .span-my:nth-child(2) {
+            top: 100%;
+            transition: 1s;
+            transition-delay: 0.25s;
+        }
+
+        .card .span-my:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, rgb(33, 37, 41));
+        }
+
+        .card:hover .span-my:nth-child(3) {
+            right: 100%;
+            transition: 1s;
+            transition-delay: 0.5s;
+        }
+
+        .card .span-my:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, rgb(33, 37, 41));
+            position: absolute;
+            display: block;
+        }
+
+        .card:hover .span-my:nth-child(4) {
+            bottom: 100%;
+            transition: 1s;
+            transition-delay: 0.75s;
+        }
+
+        .card:hover {
+            color: whitesmoke;
+            background: rgb(33, 37, 41);
+            box-shadow: 0 0 2px rgb(33, 37, 41), 0 0 4px rgb(33, 37, 41), 0 0 4px rgb(33, 37, 41);
+            transition-delay: 1s;
+        }
+
+        .card:hover .title {
+            color: whitesmoke;
+            transition-delay: 1s;
+        }
+
+        /*.card-product-grid:hover {*/
+        /*    -webkit-box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);*/
+        /*    box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);*/
+        /*    -webkit-transition: .3s;*/
+        /*    transition: .3s*/
+        /*}*/
+
+        .card-product-grid .img-wrap {
+            border-radius: 0.2rem 0.2rem 0 0;
+            height: 220px
+        }
+
+        .card .img-wrap {
+            overflow: hidden
+        }
+
+        /*.card:hover {*/
+        /*    background: #212529;*/
+        /*    color: white;*/
+        /*    transition: .3s;*/
+        /*}*/
+
+        /*.card:hover a.title {*/
+        /*    color: white;*/
+        /*    transition: .3s;*/
+        /*}*/
+
+        .card-lg .img-wrap {
+            height: 280px
+        }
+
+        .card-product-grid .img-wrap {
+            border-radius: 0.2rem 0.2rem 0 0;
+            height: 275px;
+            padding: 16px
+        }
+
+        [class*='card-product'] .img-wrap img {
+            height: 100%;
+            max-width: 100%;
+            width: auto;
+            display: inline-block;
+            -o-object-fit: cover;
+            object-fit: cover
+        }
+
+        .img-wrap {
+            text-align: center;
+            display: block
+        }
+
+        .card-product-grid .info-wrap {
+            overflow: hidden;
+            padding: 18px 20px
+        }
+
+        [class*='card-product'] a.title {
+            color: #212529;
+            display: block
+        }
+
+        .rating-stars {
+            display: inline-block;
+            vertical-align: middle;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            white-space: nowrap;
+            clear: both
+        }
+
+        .rating-stars li.stars-active {
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden
+        }
+
+        .rating-stars li {
+            display: block;
+            text-overflow: clip;
+            white-space: nowrap;
+            z-index: 1
+        }
+
+        .card-product-grid .bottom-wrap {
+            padding: 18px;
+            border-top: 1px solid #e4e4e4
+        }
+
+        .bottom-wrap-payment {
+            padding: 0px;
+            border-top: 1px solid #e4e4e4
+        }
+
+        .rated {
+            font-size: 10px;
+            color: #b3b4b6
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 600;
+            color: #343a40;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0.45rem 0.85rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.2rem
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #3167eb;
+            border-color: #3167eb
+        }
+
+        .fa {
+            color: #FF5722
+        }
+
+        .tcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .tcontainer a {
+            position: relative;
+            width: 90px;
+            height: 30px;
+            display: inline-block;
+            background: white;
+            margin: 5px;
+        }
+
+        .tcontainer a:nth-child(1):before,
+        .tcontainer a:nth-child(1):after {
+            background: linear-gradient(45deg, rgba(0, 204, 255, 0.5), rgba(33, 37, 41, 0.5), rgba(212, 0, 212, 0.5));
+        }
+
+        .tcontainer a:hover:before {
+            inset: -3px;
+        }
+
+        .tcontainer a:hover:after {
+            inset: -3px;
+            filter: blur(10px);
+        }
+
+        .tcontainer a:before,
+        .tcontainer a:after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #f00;
+            transition: 0.5s;
+        }
+
+        .tcontainer a span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            background: #0e1538;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: whitesmoke;
+            border: 1px solid #040a29;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="open_content">
+
+    <div class="container fixed-container d-flex justify-content-center">
+        <div class="row mt-4 mb-4">
+            <div class="col d-flex align-items-stretch" th:each="server : ${serverList}" th:if="${server.getVisible()}">
+                <figure class="card card-product-grid">
+                    <span class="span-my"></span>
+                    <span class="span-my"></span>
+                    <span class="span-my"></span>
+                    <span class="span-my"></span>
+
+                    <figcaption class="info-wrap">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <a href="#" class="title" data-abc="true" th:text="${server.getServerName()}">name</a>
+                                <p class="rated" th:text="${'Provider: ' + server.getProvider().getName()}">name</p>
+                            </div>
+                        </div>
+                    </figcaption>
+                    <div class="bottom-wrap-payment">
+                        <figcaption class="info-wrap">
+                            <div class="row">
+                                <div class="col-md-9 col-xs-9">
+                                    <a href="#" class="title" data-abc="true"
+                                       th:text="${'CPU: '+ server.getCpuSeries() + ' ' + server.getCpuModel()}">CPU:
+                                        Unknown</a>
+                                    <a href="#" class="title" data-abc="true"
+                                       th:text="${'RAM: '+ server.getRam() + ' GB'}">RAM: Unknown</a>
+                                </div>
+                            </div>
+                        </figcaption>
+                    </div>
+                    <div class="bottom-wrap">
+                        <p class="title" data-abc="true"
+                           th:text="${'$' + server.getPrice() + ' per month'}">$0,0</p>
+                        <div class="tcontainer">
+                            <a th:href="@{'/login'}"
+                               class="btn btn-primary custom"
+                               th:disabled="${!server.getVisible()}">
+                                <span>Choose</span>
+                            </a>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

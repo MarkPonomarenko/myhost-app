@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/admin_layout}">
+<head>
+    <meta charset="utf-8">
+    <title>Personal Details</title>
+</head>
+<body>
+
+<div layout:fragment="admin_content">
+    <div class="container">
+        <div class="card mt-4 mb-4">
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <td>id</td>
+                        <td th:text="${personal.getId()}">id</td>
+                    </tr>
+                    <tr>
+                        <td>created</td>
+                        <td th:text="${#calendars.format(personal.getCreated(),'dd MMMM yyyy')}">id</td>
+                    </tr>
+                    <tr>
+                        <td>updated</td>
+                        <td th:text="${#calendars.format(personal.getUpdated(),'dd MMMM yyyy')}">id</td>
+                    </tr>
+                    <tr>
+                        <td>first name</td>
+                        <td th:text="${personal.getFirstName()}">unknown</td>
+                    </tr>
+                    <tr>
+                        <td>last name</td>
+                        <td th:text="${personal.getLastName()}">unknown</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td th:text="${personal.getEmail()}">unknown</td>
+                    </tr>
+                    <tr>
+                        <td>balance</td>
+                        <td th:text="${personal.getBalance()}">unknown</td>
+                    </tr>
+                    <tr>
+                        <td>rented</td>
+                        <tr th:if="${not #lists.isEmpty(servers)}" th:each="server : ${servers}">
+                            <td th:text="${server.getServerName()}"></td>
+                        </tr>
+                        <td th:if = "${#lists.isEmpty(servers)}">none</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

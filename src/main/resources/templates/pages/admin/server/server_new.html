@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/admin_layout}">
+<head>
+    <meta charset="utf-8">
+    <title>New Server</title>
+    <style>
+        .col-12 {
+            max-width: 1300px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div layout:fragment="admin_content">
+    <div class = "new">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-2">
+                <div class="card-header">
+                    <h4>New server</h4>
+                </div>
+                <div class="card-body">
+                    <form action="#" th:action="@{/admin/servers/create}" th:object="${server}" method="post">
+                        <div class="form-group">
+                            <label for="serverName">Server name</label>
+                            <input type="text" class="form-control" id="serverName" aria-describedby="serverName"
+                                   placeholder="Enter server name" th:field="*{serverName}">
+                        </div>
+                        <div class="form-group">
+                            <label for="totalSpace">RAM</label>
+                            <input type="number" min="0" class="form-control" id="totalSpace" aria-describedby="totalSpace"
+                                   placeholder="Enter server RAM" th:field="*{ram}">
+                        </div>
+                        <div class="form-group">
+                            <label for="publicationDate">Price</label>
+                            <input type="number" min="0" class="form-control" id="publicationDate" aria-describedby="price"
+                                   placeholder="Enter server arend price" th:field="*{price}">
+                        </div>
+                        <div class="form-group">
+                            <label for="series">Select CPU</label>
+                            <select class="form-control" id="series" th:field="*{cpuSeries}">
+                                <option th:each="type : ${types}"
+                                        th:value="${type}"
+                                        th:text="${type}">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="model">Select Model</label>
+                            <input type="text" class="form-control" id="model" aria-describedby="model"
+                                   placeholder="Enter cpu model" th:field="*{cpuModel}">
+                        </div>
+                        <div class="form-group">
+                            <label for="provider">Select provider</label>
+                            <select class="form-control" id="provider" th:field="*{providerId}">
+                                <option th:each="provider : ${providerList}"
+                                        th:value="${provider.getId()}"
+                                        th:text="${provider.getName() + ' | ' + provider.getCountry()}">
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

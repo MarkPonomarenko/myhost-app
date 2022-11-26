@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/admin_layout}">
+<head>
+    <meta charset="utf-8">
+    <title>New Provider</title>
+    <style>
+
+        .row {
+            max-width: 1300px !important;
+            margin-left: 13px;
+        }
+
+        .btn {
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div layout:fragment="admin_content">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-2">
+                <div class="card-header">
+                    <h4>New provider</h4>
+                </div>
+                <div class="card-body">
+                    <form action="#" th:action="@{/admin/providers/create}" th:object="${provider}" method="post">
+                        <div class="form-group">
+                            <label for="providerName">Provider name</label>
+                            <input type="text" class="form-control" id="providerName" aria-describedby="serverName"
+                                   placeholder="Enter name" th:field="*{name}">
+                        </div>
+                        <div class="form-group">
+                            <label for="types">Example select</label>
+                            <select class="form-control" id="types" th:field="*{country}">
+                                <option th:each="type : ${T(com.neovisionaries.i18n.CountryCode).values()}"
+                                        th:value="${type}"
+                                        th:text="${type.getName()}">
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

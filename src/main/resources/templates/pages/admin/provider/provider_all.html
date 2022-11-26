@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/data_table_layout}">
+<head>
+    <meta charset="utf-8">
+    <title>Providers</title>
+</head>
+<body>
+
+<div layout:fragment="data_table_content">
+    <tr th:each="provider,iter : ${pageData.getItems()}">
+        <td th:text="${iter.count}"></td>
+        </td>
+        <td th:text="${provider.getName()}"></td>
+        <td th:text="${provider.getCountry().getName()}"></td>
+        <td th:text="${#calendars.format(provider.getCreated(),'dd MMMM yyyy')}"></td>
+        <td>
+            <a th:href="@{'/admin/providers/delete/' + ${provider.getId()}}" type="button"
+               class="btn btn-danger">delete</a>
+        </td>
+    </tr>
+</div>
+
+</body>
+</html>
