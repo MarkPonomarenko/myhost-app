@@ -10,6 +10,7 @@ import app.service.PersonalCrudService;
 import app.service.ServerService;
 import app.service.TransactionService;
 
+import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.Calendar;
 import java.util.Date;
@@ -52,7 +53,7 @@ public class AdminController {
         for (int i = 0; i < days.length; ++i) {
             days[i] = 0;
             for (Transaction transaction : transactions) {
-                if (transaction.getDayOfMonth() == i+1) {
+                if (transaction.getMonth()+1 == LocalDate.now().getMonth().getValue() && transaction.getDayOfMonth() == i+1) {
                     days[i] += transaction.getAmount();
                 }
             }

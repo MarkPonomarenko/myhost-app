@@ -24,11 +24,11 @@
     <tr th:each="server,iter : ${pageData.getItems()}">
         <td th:text="${iter.count}"></td>
         </td>
+        <td th:text="${server.getProvider().getName()}"></td>
         <td th:text="${server.getCpuSeries()}"></td>
         <td th:text="${server.getServerName()}"></td>
         <td th:text="${server.getRam()}"></td>
         <td th:text="${server.getCpuModel()}"></td>
-        <td th:text="${#calendars.format(server.getCreated(),'dd MMMM yyyy')}"></td>
         <td th:text="${server.getPrice()}"></td>
         <td>
             <a th:href="@{'/admin/servers/details/' + ${server.getId()}}" type="button"

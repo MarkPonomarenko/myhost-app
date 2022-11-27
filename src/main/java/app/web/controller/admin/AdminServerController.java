@@ -31,11 +31,11 @@ public class AdminServerController extends AbstractController {
 
     private final HeaderName[] columnNames = new HeaderName[] {
             new HeaderName("#", null, null),
-            new HeaderName("CPU Series", "cpuSeries", "cpuSeries"),
+            new HeaderName("Provider", "provider", "provider_id"),
+            new HeaderName("CPU Vendor", "cpuSeries", "cpuSeries"),
             new HeaderName("server name", "serverName", "serverName"),
             new HeaderName("RAM", "ram", "ram"),
             new HeaderName("CPU model", "cpuModel", "cpuModel"),
-            new HeaderName("created", "created", "created"),
             new HeaderName("price", "price", "price"),
             new HeaderName("details", null, null),
             new HeaderName("delete", null, null)
