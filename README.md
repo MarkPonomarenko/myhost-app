@@ -20,7 +20,7 @@ Web store which provides possibility to rent a dedicated server for users
 ---
 
 ### Start Up
-* Launch ElasticSearch
+* Launch ElasticSearch ([elasticsearch 7.6.2](https://www.elastic.co/downloads/past-releases/elasticsearch-7-6-2) used in development)
 * Launch App (init data in data.sql)
 * GoTo http://localhost:8080
 
